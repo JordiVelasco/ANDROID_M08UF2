@@ -154,5 +154,10 @@ public class MainActivity extends AppCompatActivity implements CallbackFragment 
 
 
     }
+    
+    public void Empezar(){
+        Intent puzzle = new Intent(this, PuzzleActivity.class);
+        startActivity(puzzle);
+    }
 
 }

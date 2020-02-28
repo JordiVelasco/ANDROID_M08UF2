@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Runnable rn;
     Button pl;
     boolean p = true;
-    Button Emepzar;
+    Button Empezar;
     Fragment fragment;
     FragmentManager fm;
     FragmentTransaction ft;

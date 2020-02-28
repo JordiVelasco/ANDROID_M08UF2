@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements CallbackFragment 
     FragmentManager fm;
     FragmentTransaction ft;
     FirebaseAuth fAuth;
+    Button Emepzar;
 
 
     @Override
@@ -159,5 +160,5 @@ public class MainActivity extends AppCompatActivity implements CallbackFragment 
         Intent puzzle = new Intent(this, PuzzleActivity.class);
         startActivity(puzzle);
     }
-
+}
 }

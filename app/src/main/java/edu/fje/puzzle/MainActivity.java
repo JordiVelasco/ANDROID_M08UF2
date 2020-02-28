@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     Button pl;
     boolean p = true;
     Button Emepzar;
+    Fragment fragment;
+    FragmentManager fm;
+    FragmentTransaction ft;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -90,6 +94,48 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         mp.release();
         hnd.removeCallbacks(rn);
+    }
+        public void addFragment(){
+        FragmentLogin fragment = new FragmentLogin();
+        fragment.setCallbackFragment(this);
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.add(R.id.fragmentContainer,fragment);
+        ft.commit();
+    }
+
+    public void replaceFragment(){
+        fragment= new FragmentRegister();
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.fragmentContainer,fragment);
+        ft.commit();
+    }
+
+    public void startFragment(){
+        FragmentMain newFragment = new FragmentMain();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+// Replace whatever is in the fragment_container view with this fragment,
+// and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragmentContainer, newFragment);
+        transaction.addToBackStack(null);
+
+// Commit the transaction
+        transaction.commit();
+    }
+
+    @Override
+    public void changeFragment() {
+        replaceFragment();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
     }
 
     public void Empezar(){

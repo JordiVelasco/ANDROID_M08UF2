@@ -2,14 +2,15 @@ package edu.fje.puzzle;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
+
 
 
 public class PuzzleActivity extends AppCompatActivity {
@@ -17,6 +18,8 @@ public class PuzzleActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private Bitmap imageBitmap = null;
     private PuzzleBoardView boardView;
+
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ import java.util.PriorityQueue;
 import java.util.Random;
 
 class PuzzleBoardView extends View {
+    Context context;
+    private MediaPlayer mp;
     public static final int NUM_SHUFFLE_STEPS = 40;
     private Activity activity;
     private PuzzleBoard puzzleBoard;
@@ -70,6 +73,10 @@ class PuzzleBoardView extends View {
         }
     }
 
+    public void so(){
+        mp = MediaPlayer.create(context, R.raw.b);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (animation == null && puzzleBoard != null) {
@@ -122,6 +129,8 @@ class PuzzleBoardView extends View {
         }
     }
 }
+
+
 class PuzzleBoardComparator implements Comparator<PuzzleBoard> {
     @Override
     public int compare(PuzzleBoard first, PuzzleBoard second) {

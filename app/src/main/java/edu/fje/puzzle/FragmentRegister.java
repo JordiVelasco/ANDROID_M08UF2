@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class FragmentRegister extends Fragment {
         eUser = view.findViewById(R.id.eUsuario);
         eMail = view.findViewById(R.id.eMail);
         ePass = view.findViewById(R.id.eContra);
-
+        db = FirebaseDatabase.getInstance().getReference("");
 
         bRegister = view.findViewById(R.id.bRegister);
 
@@ -111,4 +112,7 @@ public class FragmentRegister extends Fragment {
 
     }
 
+
+
 }
+

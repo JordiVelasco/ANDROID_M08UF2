@@ -2,6 +2,7 @@ package edu.fje.puzzle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -16,13 +17,14 @@ public class MainActivity extends AppCompatActivity {
     Runnable rn;
     Button pl;
     boolean p = true;
+    Button Emepzar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Emepzar = findViewById(R.id.bEmpezar);
         pl = (Button) findViewById(R.id.bPlpa);
         pl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 mp.start();
             }
         });
+
+        Emepzar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Empezar();
+            }
+        });
+
 
     }
 
@@ -80,5 +90,10 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         mp.release();
         hnd.removeCallbacks(rn);
+    }
+
+    public void Empezar(){
+        Intent puzzle = new Intent(this, PuzzleActivity.class);
+        startActivity(puzzle);
     }
 }
